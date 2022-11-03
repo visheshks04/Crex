@@ -16,7 +16,6 @@ nav{
 .home{
     width: 100%;
     height: 100vh;
-    overflow: hidden;
 }
 nav h2{
     color: rgb(87, 84, 84);
