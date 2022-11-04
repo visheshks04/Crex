@@ -1,0 +1,273 @@
+@media screen and (max-width: 1200px)
+{
+    #nam{
+        display: none;
+    }
+    .left, .right{
+        min-width: 100%;
+        min-height: 100px;
+    }
+    .rightest{
+        z-index: -100;
+    }
+}
+@media screen and (min-width: 1200px) 
+{
+    .right{
+        margin: auto;
+        padding: 50px;
+    }
+    .left{
+        padding: 10px;
+        width: 28vw;
+    }
+    .fo{
+        display: block;
+    }
+    .left-container{
+        text-align: left;
+    }
+    .f1{
+        font-size: 4em !important;
+    }
+    .f2{
+        font-size: 6em !important;
+    }
+    .f3{
+        font-size: 8em !important;
+    }
+    .f4{
+        font-size: 6em !important;
+    }
+    .f5{
+        font-size: 4em !important;
+    }
+    .rightest{
+        width: 28vw;
+        padding: 10px 10px;
+    }
+    .eo{
+        display: block;
+        text-align: right;
+    }
+    .e1{
+        color: lightcoral;
+        font-size: 4em;
+        font-weight: 800;
+    }
+    .e2{
+        color: lightgreen;
+        font-size: 5em;
+        font-weight: 800;
+    }
+    .e3{
+        color: lightskyblue;
+        font-size: 7em;
+        font-weight: 800;
+    }
+    .e4{
+        color: brown;
+        font-size: 7em;
+        font-weight: 800;
+    }
+    .e5{
+        color: burlywood;
+        font-size: 5em;
+        font-weight: 800;
+    }
+    .e6{
+        color: pink;
+        font-size: 4em;
+        font-weight: 800;
+    }
+}
+*{
+    background-color: rgb(225,231,236);
+    font-family: sans-serif;
+}
+/* Targeting body tag to remove margin and padding */
+body{
+    margin: 0;
+    padding: 0;
+}
+/* Making left container and right container inline block */
+.left, .right, .rightest{
+    display: inline;
+}
+/* Changeing logo image size */
+#img{
+    width: 40px;
+}
+/* Making nav bar boss */
+nav{
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    padding: 10px;
+    z-index: 10;
+}
+nav h2{
+    color: rgb(87, 84, 84);
+    font-size: 40px;
+}
+
+
+#btn{
+    background: none;
+    border: none;
+    padding: 4px;
+}
+#btn:hover, #btn1:hover{
+    cursor: pointer;
+}
+#btn1{
+    background: none;
+    border: none;
+    margin-top: 20px;
+}
+#menu{
+    display:none;
+    position: fixed;
+    left: 1;
+    top: 0;
+    background-color: white;
+    height: 100vh;
+    width: 70%;
+    z-index: 100;
+}
+#menucontainer{
+    height: 70vh;
+    width: 50vw;
+    position: relative;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+#menucontainer p{
+    text-align: center;
+    padding: 20px;
+    padding-bottom: 15px;
+    margin: 15px;
+}
+#menucontainer p a{
+    color: black;
+    font-weight: 600;
+    text-decoration: none;
+}
+#nav-right{
+    position: absolute;
+    top: 35%;
+    right: 5%;
+}
+#signup{
+    padding:6px 22px;
+    border: 1px solid black;
+    color:black;
+    border-radius: 30px;
+    text-decoration: none;
+}
+#signup:hover{
+    background-color: #2bc5b4;
+    color: white;
+}
+/* giving container its gigantic size */
+.container{
+    padding-top: 54px;
+    width: 100vw;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-content: center;
+}
+/* Designing Left and right Containers */
+.left{
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    /* background-color: lightcoral; */
+}
+.right{
+    text-align: center;
+}
+/* Designing the form to make it look good */
+.form-top{
+    margin: auto;
+    text-align: left;
+    padding: 10px;
+}
+#welcome{
+    font-weight: 700;
+    font-size: 2em;
+}
+form{
+    margin: auto;
+    width: fit-content;
+    /* background-color: hotpink; */
+}
+#forgot{
+    text-align: right;
+    color: #2bc5b4;
+    text-decoration: none;
+}
+form img{
+    width: 50px;
+    padding: 0px 10px;
+}
+input{
+    font-weight: 550;
+    background-color: white;
+    border: none;
+    border-radius: 20px;
+    text-align: center;
+    padding: 16.5px 22px;
+    width: 300px;
+}
+#submit{
+    width: 300px;
+    font-size: 1em;
+    font-weight: 700;
+    padding: 10;
+    border: none;
+    color: white;
+    background-color: #2bc5b4;
+}
+#submit:hover{
+    background-color: rgb(113, 221, 5);
+}
+#ocw{
+    color: #a9a9a9;
+}
+
+/* Making FOOD text to look good */
+.left-container{
+    padding: 0px 10px;
+}
+.f1{
+    color: lightcoral;
+    font-size: 3em;
+    font-weight: 800;
+}
+.f2{
+    color: lightgreen;
+    font-size: 2.5em;
+    font-weight: 800;
+}
+.f3{
+    color: lightskyblue;
+    font-size: 2em;
+    font-weight: 800;
+}
+.f4{
+    color: brown;
+    font-size: 1.5em;
+    font-weight: 800;
+}
+.f5{
+    color: burlywood;
+    font-size: 1em;
+    font-weight: 700;
+}
