@@ -1,3 +1,4 @@
+
 @media screen and (max-width: 1200px)
 {
     #nam{
@@ -106,14 +107,19 @@ nav{
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
-    padding: 10px;
+    /* padding: 10px; */
     z-index: 10;
+    width: 100%;
+    /* background-color: red; */
 }
 nav h2{
-    color: rgb(87, 84, 84);
-    font-size: 40px;
+    font-size: 30px;
+    margin: none;
 }
-
+nav h2 a{
+    color: rgb(87, 84, 84);
+    text-decoration: none;
+}
 
 #btn{
     background: none;
@@ -124,9 +130,10 @@ nav h2{
     cursor: pointer;
 }
 #btn1{
-    background: none;
+    background: nones;
     border: none;
     margin-top: 20px;
+
 }
 #menu{
     display:none;
@@ -145,6 +152,7 @@ nav h2{
     top: 40%;
     left: 50%;
     transform: translate(-50%,-50%);
+    background-color: white;
 }
 
 #menucontainer p{
@@ -152,17 +160,19 @@ nav h2{
     padding: 20px;
     padding-bottom: 15px;
     margin: 15px;
+    background-color: white;
 }
 #menucontainer p a{
     color: black;
     font-weight: 600;
     text-decoration: none;
+    background-color: white;
 }
-#nav-right{
-    position: absolute;
-    top: 35%;
-    right: 5%;
-}
+    /* #nav-right{
+        position: absolute;
+        top: 35%;
+        right: 5%;
+    } */
 #signup{
     padding:6px 22px;
     border: 1px solid black;
@@ -246,7 +256,7 @@ input{
 .left-container{
     padding: 0px 10px;
 }
-.f1{
+/* .f1{
     color: lightcoral;
     font-size: 3em;
     font-weight: 800;
@@ -270,4 +280,4 @@ input{
     color: burlywood;
     font-size: 1em;
     font-weight: 700;
-}
+} */

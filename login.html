@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="stylesheet" href="style.login.css">
+    <link rel="stylesheet" href="styles/style.login.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="media/CrexLogo.png" type="image/x-icon">
     <title>CREX- Stay Prepared!</title>
@@ -11,7 +11,7 @@
 <body>
     <nav>
         <button id="btn"><img src="media/iconmonstr-menu-left-lined-72.png" alt="menu" width="35px"></button>
-        <h2 style="margin-left: 20px;">Crex</h2> 
+        <h2 style="margin-left: 20px;"><a href="index.html"> Crex</a></h2> 
     </nav>
     <div id="menu">
         <button id="btn1"><img src="media/iconmonstr-x-mark-thin-240.png" alt="menu" style="width: 25px; margin-left:15px;"/></button>
@@ -31,9 +31,6 @@
       </div>
     <div class="container">
         <div class="left">
-            <div class="left-container">
-                <p>"Time is key to building your financial security"</p>
-            </div>
         </div>
         <div class="right">
             <form action="#">
@@ -44,16 +41,39 @@
             </div>
                 <p><input type="email" name="email" id="email" placeholder="Enter E-mail" required></p>
                 <p><input type="password" name="pass" id="pass" placeholder="Enter Password" required></p>
-                <p id="forgot"><a href="#" id="forgot">Forgot Password?</a></p>
+                <!-- <p id="forgot"><a href="#" id="forgot">Forgot Password?</a></p> -->
                 <p><input id="submit" type="submit" value="Let's Go!"></p>
-                    <p id="ocw">OR CONNECT WITH</p>
+                <p>Already a User? <a href="signup.html">Sign Up</a></p>
+                    <!-- <p id="ocw">OR CONNECT WITH</p>
                 <a href="#"><img src="../google-icon.png" alt="gi"></a>
-                <a href="#"><img src="../apple-icon.png" alt=""></a>
+                <a href="#"><img src="../apple-icon.png" alt=""></a> -->
             </form>
         </div>
         <div class="rightest">
             
         </div>
     </div>
+    <script>
+        const btn = document.getElementById("btn");
+        btn.onclick = function () {
+          const a = document.getElementById("menu");
+          if (a.style.display == "none") {
+            a.style.display = "block";
+          } else {
+            a.style.display = "none";
+          }
+          console.log("CLICKED!");
+        };
+        const btn1 = document.getElementById("btn1");
+        btn1.onclick = function () {
+          const a = document.getElementById("menu");
+          if (a.style.display == "none") {
+            a.style.display = "block";
+          } else {
+            a.style.display = "none";
+          }
+          console.log("CLICKED!");
+        };
+      </script>
 </body>
 </html>
