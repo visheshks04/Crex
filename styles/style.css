@@ -3,6 +3,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: sans-serif;
+    scroll-behavior: smooth
 }
 nav{
     position: fixed;
@@ -12,12 +13,114 @@ nav{
     flex-wrap: wrap;
     flex-direction: row;
     padding: 10px;
+    z-index: 10;
 }
 .home{
     width: 100%;
     height: 100vh;
+    overflow: hidden    ;
 }
+.hometwo{
+    width: 100%;
+    height: 100vh;
+}
+.home h4{
+    position: absolute;
+    top: 30%;
+    left: 12%;
+    color: white;
+    font-size: 60px;
+}
+.home h3{
+    position: absolute;
+    top: 48%;
+    left: 14%;
+    font-size: 25px;
+    color: rgb(108, 107, 107);
+}
+#joinbutton{
+    position: absolute;
+    top: 57%;
+    left: 14%;
+    padding: 10px;
+    font-size: 25px;
+    width: 270px;
+    background: purple;
+    color: white;
+    text-decoration: underline;
+    border: 2px solid rgb(108, 107, 107);
+    border-radius: 10px;
+}
+
+
+
 nav h2{
     color: rgb(87, 84, 84);
     font-size: 40px;
+}
+
+
+#btn{
+    background: none;
+    border: none;
+    padding: 4px;
+}
+#btn:hover, #btn1:hover{
+    cursor: pointer;
+}
+#btn1{
+    background: none;
+    border: none;
+    margin-top: 20px;
+}
+#menu{
+    display:none;
+    position: fixed;
+    left: 1;
+    top: 0;
+    background-color: white;
+    height: 100vh;
+    width: 70%;
+    z-index: 100;
+}
+#menucontainer{
+    height: 70vh;
+    width: 50vw;
+    position: relative;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+#menucontainer p{
+    text-align: center;
+    padding: 20px;
+    padding-bottom: 15px;
+    margin: 15px;
+}
+#menucontainer p a{
+    color: black;
+    font-weight: 600;
+    text-decoration: none;
+}
+    /* The first media component here can be removed in case of any error */
+
+@media screen and (min-width: 449px){
+    video{
+        width: 350% !important;
+        margin-left: -600px !important;
+    }
+} 
+
+@media screen and (min-width: 768px){
+    video{
+        width: 280% !important;
+        margin-left: -600px !important;
+    }
+} 
+@media screen and (min-width: 1024px){
+    video{
+        width: 100% !important;
+        margin-left: 0 !important;
+    }
 }
