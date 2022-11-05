@@ -32,6 +32,7 @@ class Request(db.Model):
     aadhar = db.Column(db.Integer, unique=False, primary_key=True)
     fname = db.Column(db.String(30), unique=False, nullable=False)
     req_amount = db.Column(db.Integer, unique=False, nullable=False)
+    dt = db.Column(db.DateTime, unique=False, nullable=False)
 
     def __repr__(self):
         return "{} - {} - {}".format(self.aadhar, self.fname, self.req_amount)
@@ -70,6 +71,20 @@ def signup():
 
 @app.route("/dashboard", methods=['GET', 'POST'])
 def dashboard():
+
+    params={}
+
+    params['requests'] = []
+
+    for req in Request.query.all():
+        params['requests'].append((req.aadhar. req.fname, req.req_amount, req.dt))
+
+    params['lendings'] = []
+
+    for lending in Lending.query.all():
+        params['lendings'].append((lending.from_aadhar, lending.from_fname, lending.to_aadhar, lending.to_fname, lending.amount, lending.roi, lending.dt))
+        
+
     if request.method == 'POST':
         aadhar = request.form.get('aadhaar')
         fname = request.form.get('first-name')
@@ -91,7 +106,7 @@ def dashboard():
         db.session.add(peer)
         db.session.commit()
 
-    return render_template('dashboard.html')
+    return render_template('dashboard.html', params=params)
 
 
 @app.route('/request_confirm', methods=['GET', 'POST'])
