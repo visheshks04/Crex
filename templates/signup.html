@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='CrexLogo.png') }}" type="image/x-icon">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.signup.css') }}">
+    <title>CREX- Stay Prepared!</title>
+</head>
+<body>
+    <nav>
+        <button id="btn"><img src="{{ url_for('static', filename='iconmonstr-menu-left-lined-72.png') }}iconmonstr-menu-left-lined-72.png" alt="menu" width="35px"></button>
+        <h2 style="margin-left: 20px;"><a href="index.html"> Crex</a></h2> 
+    </nav>
+    <div id="menu">
+        <button id="btn1"><img src="{{ url_for('static', filename='iconmonstr-x-mark-thin-240.png') }}" alt="menu" style="width: 25px; margin-left:15px;"/></button>
+        <div id="menucontainer">
+          <p><a href="login.html">Your Profile</a></p>
+          <hr>
+          <p><a href="addictiontst.html">Dashboard</a></p>
+          <hr>
+          <p><a href="stats.html">Government Yojna</a></p>
+          <hr>
+          <p><a href="knowledge.html">About us</a></p>
+          <!-- <hr>
+          <p><a href="message.html">Messages from Real life fighters</a></p>
+          <hr>
+          <p><a href="frm.html">Become a volunteer / Need Volunteers</a></p> -->
+        </div>
+    </div>
+    <div class="container">
+        <div class="left">
+        </div>
+        <div class="right">
+            <form action="#">
+                
+            <div class="form-top">
+                <span id="welcome">Welcome. </span><br>
+                <span id="w-text">Fill the details to continue.</span>
+            </div>
+                <p><input type="email" name="email" id="email" placeholder="Enter your E-mail" required></p>
+                <p><input type="text" name="first-name" placeholder="First Name" required></p>
+                <p><input type="text" name="last-name" placeholder="Last Name"></p>
+                <p><input type="password" name="pass" id="pass" placeholder="Create a Password" required></p>
+                <p style="margin-bottom:10px ;"><input type="password" name="pass" id="pass" placeholder="Confirm Password" required></p>
+                <hr>
+                <p style="margin-top:10px ;"><input type="text" name="aadhaar" id="aadhaar" placeholder="Aadhaar Number" required></p>
+                <p><input type="number" name="phnno" id="phoneno" placeholder="Phone Number" required></p>
+                <p><input type="text" name="occupation" id="occupation" placeholder="Occupation" important></p>
+                <p style="font-size:16px ; font-weight: 600; color: rgb(106, 106, 106); margin-top: 10px;">Date of Birth:</p>
+                <p><input type="date" name="dob" id="dob" placeholder="Date of Birth" important style="color: rgb(87, 84, 84);"></p>
+                <p style="margin-bottom: 10px;"><input type="text" name="income" id="income" placeholder="Monthly Income" important></p>
+                <hr>
+                <p><input type="image" src="aadhaar_image.gif" alt="Upload Aadhaar image" required></p>
+                <p><input type="image" src="image-submit.gif" alt="Upload Your Image" required></p>
+                <p><input id="submit" type="submit" value="Sign Me Up!"></p>
+
+                <!-- <p id="ocw">OR CONNECT WITH</p> -->
+                <!-- <a href="#"><img src="../google-icon.png" alt="gi"></a>
+                <a href="#"><img src="../facebook-icon.png" alt="fi"></a>
+                <a href="#"><img src="../apple-icon.png" alt=""></a> -->
+            </form>
+        </div>
+        <div class="rightest">
+            <!-- <span class="eo e1"> ciao </span>
+            <span class="eo e2"> privet </span>
+            <span class="eo e3"> olá </span>
+            <span class="eo e4"> nóng hō </span>
+            <span class="eo e5"> bună </span>
+            <span class="eo e6"> hallo </span> -->
+        </div>
+    </div>
+    <script>
+        const btn = document.getElementById("btn");
+        btn.onclick = function () {
+          const a = document.getElementById("menu");
+          if (a.style.display == "none") {
+            a.style.display = "block";
+          } else {
+            a.style.display = "none";
+          }
+          console.log("CLICKED!");
+        };
+        const btn1 = document.getElementById("btn1");
+        btn1.onclick = function () {
+          const a = document.getElementById("menu");
+          if (a.style.display == "none") {
+            a.style.display = "block";
+          } else {
+            a.style.display = "none";
+          }
+          console.log("CLICKED!");
+        };
+      </script>
+</body>
+</html>

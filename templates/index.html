@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='CrexLogo.png') }}" type="image/x-icon">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>CREX- Stay Prepared!</title>
+</head>
+<body>
+    <nav>
+        <!-- <button id="btn" style="background: none; border:none;"><img src="media/iconmonstr-menu-left-lined-72.png" alt="menu" width="35px"></button> -->
+        <button id="btn"><img src="{{ url_for('static', filename='iconmonstr-menu-left-lined-72.png') }}" alt="menu" width="35px"></button>
+        <h2 style="margin-left: 20px;">Crex</h2>
+    </nav>
+    <div id="menu">
+        <button id="btn1"><img src="{{ url_for('static', filename='iconmonstr-x-mark-thin-240.png') }}" alt="menu" style="width: 25px; margin-left:15px;"/></button>
+        <div id="menucontainer">
+          <p><a href="login">Your Profile</a></p>
+          <hr>
+          <p><a href="addictiontst.html">Addiction Test</a></p>
+          <hr>
+          <p><a href="stats.html">Global Statistics</a></p>
+          <hr>
+          <p><a href="knowledge.html">Managing Addiction</a></p>
+          <hr>
+          <p><a href="message.html">Messages from Real life fighters</a></p>
+          <hr>
+          <p><a href="frm.html">Become a volunteer / Need Volunteers</a></p>
+        </div>
+      </div>
+
+    <div class="home">
+        <video autoplay loop muted id="myVideo" style="width: 410%; margin-left: -520px">
+            <source src="{{ url_for('static', filename='Production Id 3943962.m4v') }}" type="video/mp4">
+            Your browser does not support HTML5 video.
+        </video>
+        <h4>ALWAYS <br> STAY <br> PREPARED</h4>
+        <h3>A hassleless way to protect your financial future!</h3> 
+        <button id="joinbutton" onclick="window.location.href = 'signup.html';">Apply Now</button>
+        <h2>Already done? <a href="login.html">Log In</a></h2>
+    </div>
+    <div class="hometwo">
+
+    </div>
+    <footer>
+
+    </footer>
+
+    <script>
+        const btn = document.getElementById("btn");
+        btn.onclick = function () {
+          const a = document.getElementById("menu");
+          if (a.style.display == "none") {
+            a.style.display = "block";
+          } else {
+            a.style.display = "none";
+          }
+          console.log("CLICKED!");
+        };
+        const btn1 = document.getElementById("btn1");
+        btn1.onclick = function () {
+          const a = document.getElementById("menu");
+          if (a.style.display == "none") {
+            a.style.display = "block";
+          } else {
+            a.style.display = "none";
+          }
+          console.log("CLICKED!");
+        };
+      </script>
+</body>
+</html>
