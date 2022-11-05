@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request
 from flask_sqlalchemy import SQLAlchemy
-from datetime import date
+from datetime import date, datetime
 
 db_name = 'users.sqllite3'
 
@@ -22,9 +22,6 @@ class Peer(db.Model):
     dob = db.Column(db.DateTime, unique=False, nullable=False)
     income = db.Column(db.Integer, unique=False, nullable=False)
 
-    # def __init__(self, aadhar, ):
-        
-    #     self.aadhar = aadhar
 
     def __repr__(self):
         return "{} - {}".format(self.aadhar, self.fname)
@@ -41,7 +38,7 @@ class Request(db.Model):
 
 
 
-class Lendings(db.Model):
+class Lending(db.Model):
 
     from_aadhar = db.Column(db.Integer, unique=False, primary_key=True)
     from_fname = db.Column(db.String(30), unique=False, nullable=False)
@@ -49,6 +46,7 @@ class Lendings(db.Model):
     to_fname = db.Column(db.String(30), unique=False, nullable=False)
     amount = db.Column(db.Integer, unique=False, nullable=False)
     roi = db.Column(db.Float, unique=False, nullable=False)
+    dt = db.Column(db.DateTime, unique=False, nullable=False)
 
     def __repr__(self):
         return "{}({}) lended {}({})  Rs{} at an interest rate of {}.".format(self.from_fname, self.from_aadhar, self.to_fname, self.to_aadhar, self.amount, self.roi)
@@ -109,6 +107,23 @@ def request_confirm():
 
     return render_template('req_cnf.html')
 
+
+@app.route('transact_confirm', methods=['GET', 'POST'])
+def transact_confirm():
+    if request.method == 'POST':
+        from_aadhar = request.form.get('from_aadhaar')
+        from_fname = request.form.get('from_fname')
+        to_aadhar = request.form.get('to_aadhaar')
+        to_fname = request.form.get('to_fname')
+        amount = request.form.get('amount')
+        roi = request.form.get('roi')
+        dt = datetime.now()
+
+        lending = Lending(from_aadhar=from_aadhar, from_fname=from_fname, to_aadhar=to_aadhar, to_fname=to_fname, amount=amount, roi=roi, dt=dt)
+        db.session.add(lending)
+        db.session.commit()
+
+    return render_template('txn_cnf.html')
 
 if __name__ == '__main__':
     db.create_all()
