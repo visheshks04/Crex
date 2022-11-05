@@ -9,6 +9,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + db_name
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
+
 class Peer(db.Model):
 
     aadhar = db.Column(db.Integer, unique=True, primary_key=True)
@@ -29,26 +30,86 @@ class Peer(db.Model):
         return "{} - {}".format(self.aadhar, self.fname)
 
 
+class Request(db.Model):
+
+    aadhar = db.Column(db.Integer, unique=False, primary_key=True)
+    fname = db.Column(db.String(30), unique=False, nullable=False)
+    req_amount = db.Column(db.Integer, unique=False, nullable=False)
+
+    def __repr__(self):
+        return "{} - {} - {}".format(self.aadhar, self.fname, self.req_amount)
+
+
+
+class Lendings(db.Model):
+
+    from_aadhar = db.Column(db.Integer, unique=False, primary_key=True)
+    from_fname = db.Column(db.String(30), unique=False, nullable=False)
+    to_aadhar = db.Column(db.Integer, unique=False)
+    to_fname = db.Column(db.String(30), unique=False, nullable=False)
+    amount = db.Column(db.Integer, unique=False, nullable=False)
+    roi = db.Column(db.Float, unique=False, nullable=False)
+
+    def __repr__(self):
+        return "{}({}) lended {}({})  Rs{} at an interest rate of {}.".format(self.from_fname, self.from_aadhar, self.to_fname, self.to_aadhar, self.amount, self.roi)
+
+
 
 @app.route("/")
 def index():
     return render_template('index.html')
 
+
 @app.route("/login")
 def login():
     return render_template('login.html')
 
+
 @app.route("/signup")
 def signup():
-    aadhar = request.form['']
-    peer = Peer(aadhar=123, fname='Vishesh', lname='Kumar Singh', email='visheshkrsinghofficial@gmail.com', password='password', phone='8057900850', occupation='Student', dob=date(2001, 11, 4), income=4000)
-    db.session.add(peer)
-    db.session.commit()
     return render_template('signup.html')
 
-@app.route("/dashboard")
+
+@app.route("/dashboard", methods=['GET', 'POST'])
 def dashboard():
+    if request.method == 'POST':
+        aadhar = request.form.get('aadhaar')
+        fname = request.form.get('first-name')
+        lname = request.form.get('last-name')
+        email = request.form.get('email')
+        password = request.form.get('pass')
+        phone = request.form.get('phnno')
+        occupation = request.form.get('occupation')
+        
+        year  = int(request.form.get('dob')[:4])
+        month =  int(request.form.get('dob')[5:7])
+        day = int(request.form.get('dob')[8:10])
+        dob = date(year,month,day)
+
+        income = request.form.get('income')
+
+
+        peer = Peer(aadhar=aadhar, fname=fname, lname=lname, email=email, password=password, phone=phone, occupation=occupation, dob=dob, income=income)
+        db.session.add(peer)
+        db.session.commit()
+
     return render_template('dashboard.html')
 
+
+@app.route('/request_confirm', methods=['GET', 'POST'])
+def request_confirm():
+    if request.method == 'POST':
+        aadhar = request.form.get('aadhaar')
+        fname = request.form.get('fname')
+        req_amount = request.form.get('reqamount')
+
+        req = Request(aadhar=aadhar, fname=fname, req_amount=req_amount)
+        db.session.add(req)
+        db.session.commit()
+
+    return render_template('req_cnf.html')
+
+
 if __name__ == '__main__':
+    db.create_all()
     app.run(debug=True)

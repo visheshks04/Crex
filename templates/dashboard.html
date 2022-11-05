@@ -17,17 +17,14 @@
     <div id="menu">
         <button id="btn1"><img src="{{ url_for('static', filename='iconmonstr-x-mark-thin-240.png') }}" alt="menu" style="width: 25px; margin-left:15px;"/></button>
         <div id="menucontainer">
-          <p><a href="login.html">Your Profile</a></p>
+          <p><a href="profile.html">Your Profile</a></p>
           <hr>
-          <p><a href="addictiontst.html">Addiction Test</a></p>
+          <p><a href="dashboard.html">Dashboard</a></p>
           <hr>
           <p><a href="stats.html">Global Statistics</a></p>
           <hr>
-          <p><a href="knowledge.html">Managing Addiction</a></p>
+          <p><a href="govyojna.html">Government Yojna</a></p>
           <hr>
-          <p><a href="message.html">Messages from Real life fighters</a></p>
-          <hr>
-          <p><a href="frm.html">Become a volunteer / Need Volunteers</a></p>
         </div>
       </div>
 
@@ -40,17 +37,49 @@
                 <p class="amtdet" style="font-size: 1.5em;">For 24 months at 7.5%p.a</p>
             </div>
         </div> -->
-        <div id="amount">
+        <!-- <div id="amount">
             <p class="amtdet">₹75000</p>
-        </div>
+        </div> -->
         <div id="data">
             <div id="dl" class="box2">
-
+              <h2 class="tpp">Requests</h2>
+              <p style="margin-top: 60px;"><span>Sanjay Mishra</span></p>
+              <hr>
+              <p> <span style="font-weight: 600;">Piyush Sharma</span><span> </span></p>
+              <hr>
+              <p> <span>Neha Tomar</span></p>
+              <hr>
+              <p><span>Raju Shastri</span></p>
+              <hr>
+              <p>Neeraj Pandit</p>
+              <hr>
+              <p>Neelu Srivastava</p>
+              <hr>
+              <p>Suraj Shukla</p>
             </div>
             <div id="dr" class="box2">
-
+              <h2 class="tpp">Active Transactions</h2>
+              <p style="margin-top: 60px;">Agrim Chauhans</p>
+              <hr>
+              <p>Abhinav Saxena</p>
+              <hr>
+              <p>Ambuj Kulsheshta</p>
+              <hr>
+              <p>Jyoti Ojha</p>
             </div>
         </div>
+      </div>
+      <div id="request">
+        <button id="requbtn">Request</button>
+      </div>
+      <div id="requestmoney">
+        <button id="closerequ"><img src="{{ url_for('static', filename='iconmonstr-x-mark-thin-240.png') }}" alt="close request popup"></button>
+        <form action="/request_confirm" method="post">
+          <input type="number" name="aadhar" id="aadhar" placeholder="Enter Aadhar number" required>
+          <input type="text" name="fname" id="fname" placeholder="Enter First Name" required>
+          <input type="number" name="reqamount" id="reqamount" placeholder="Enter the required amount" required>
+          <input id="submit" type="submit" value="Confirm Request">
+        </form>
       </div>
 
       <script>
