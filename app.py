@@ -77,13 +77,13 @@ def dashboard():
     params['requests'] = []
 
     for req in Request.query.all():
-        params['requests'].append((req.aadhar. req.fname, req.req_amount, req.dt))
+        params['requests'].append((req.aadhar, req.fname, req.req_amount, req.dt))
 
     params['lendings'] = []
 
     for lending in Lending.query.all():
         params['lendings'].append((lending.from_aadhar, lending.from_fname, lending.to_aadhar, lending.to_fname, lending.amount, lending.roi, lending.dt))
-        
+
 
     if request.method == 'POST':
         aadhar = request.form.get('aadhaar')
@@ -115,18 +115,19 @@ def request_confirm():
         aadhar = request.form.get('aadhaar')
         fname = request.form.get('fname')
         req_amount = request.form.get('reqamount')
+        dt = datetime.now()
 
-        req = Request(aadhar=aadhar, fname=fname, req_amount=req_amount)
+        req = Request(aadhar=aadhar, fname=fname, req_amount=req_amount, dt=dt)
         db.session.add(req)
         db.session.commit()
 
     return render_template('req_cnf.html')
 
 
-@app.route('transact_confirm', methods=['GET', 'POST'])
+@app.route('/transact_confirm', methods=['GET', 'POST'])
 def transact_confirm():
     if request.method == 'POST':
-        from_aadhar = request.form.get('from_aadhaar')
+        from_aadhar = request.form.get('from_aadhaar')  
         from_fname = request.form.get('from_fname')
         to_aadhar = request.form.get('to_aadhaar')
         to_fname = request.form.get('to_fname')
