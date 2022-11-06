@@ -84,6 +84,7 @@ def dashboard():
     for lending in Lending.query.all():
         params['lendings'].append((lending.from_aadhar, lending.from_fname, lending.to_aadhar, lending.to_fname, lending.amount, lending.roi, lending.dt))
 
+    print(params)
 
     if request.method == 'POST':
         aadhar = request.form.get('aadhaar')
