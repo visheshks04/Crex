@@ -12,7 +12,7 @@
     <nav>
         <!-- <button id="btn" style="background: none; border:none;"><img src="media/iconmonstr-menu-left-lined-72.png" alt="menu" width="35px"></button> -->
         <button id="btn"><img src="{{ url_for('static', filename='iconmonstr-menu-left-lined-72.png') }}" alt="menu" width="35px"></button>
-        <h2 style="margin-left: 20px;"><a href="dashboard.html"> Crex</a></h2>
+        <h2 style="margin-left: 20px;"><a href="dashboard"> Crex</a></h2>
     </nav>
     <div id="menu">
         <button id="btn1"><img src="{{ url_for('static', filename='iconmonstr-x-mark-thin-240.png') }}" alt="menu" style="width: 25px; margin-left:15px;"/></button>
@@ -43,46 +43,150 @@
         <div id="data">
             <div id="dl" class="box2">
               <h2 class="tpp">Requests</h2>
-              <p style="margin-top: 60px;"><span>Sanjay Mishra</span></p>
+              <!-- <p style="margin-top: 60px;"><span style="font-weight: 600;">Sanjay Mishra</span></p>
+              <hr> -->
+              
+              {% for aadhar, fname, req_amount, dt in params['requests'] %}
+              <div class="list" style="margin-top: 70px;">
+                <p>{{ aadhar }}</p>
+                <p>{{ fname }}</p>
+                <p>{{ req_amount }}</p>
+                <p>{{ dt }}</p>
+                <p><button id="accept">Accept</button></p>
+              </div>
+              {% endfor %}
               <hr>
-              <p> <span style="font-weight: 600;">Piyush Sharma</span><span> </span></p>
+              <!-- <p> <span style="font-weight: 600;">Neha Tomar</span></p>
               <hr>
-              <p> <span>Neha Tomar</span></p>
+              <p><span style="font-weight: 600;">Raju Shastri</span></p>
               <hr>
-              <p><span>Raju Shastri</span></p>
+              <p style="font-weight: 600;">Neeraj Pandit</p>
               <hr>
-              <p>Neeraj Pandit</p>
+              <p style="font-weight: 600;">Neelu Srivastava</p>
               <hr>
-              <p>Neelu Srivastava</p>
-              <hr>
-              <p>Suraj Shukla</p>
+              <p style="font-weight: 600;">Suraj Shukla</p> -->
             </div>
             <div id="dr" class="box2">
-              <h2 class="tpp">Active Transactions</h2>
-              <p style="margin-top: 60px;">Agrim Chauhans</p>
+              <h2 class="tpp">Lendings</h2>
+              {% for from_fname, from_aadhar, to_fname, to_aadhar, amount, roi, dt in params['lendings'] %}
+              <div class="list" style="margin-top: 70px;">
+                <p>{{ from_fname }}</p>
+                <p>{{ from_aadhar }}</p>
+                <p>{{ to_fname }}</p>
+                <p>{{ to_aadhar }}</p>
+                <p>{{ amount }}</p>
+                <p>{{ roi }}</p>
+                <p>{{ dt }}</p>
+              </div>
+              {% endfor %}
               <hr>
-              <p>Abhinav Saxena</p>
+              <!-- <p style="margin-top: 60px; font-weight: 600;">Agrim Chauhans</p>
               <hr>
-              <p>Ambuj Kulsheshta</p>
+              <p style="font-weight: 600;">Abhinav Saxena</p>
               <hr>
-              <p>Jyoti Ojha</p>
-            </div>
+              <p style="font-weight: 600;">Ambuj Kulsheshta</p>
+              <hr>
+              <p style="font-weight: 600;">Jyoti Ojha</p>
+            </div> -->
         </div>
       </div>
+      <div id="acceptpopup">
+        <div id="accept">
+          <button id="closerequ"><img src="{{ url_for('static', filename='iconmonstr-x-mark-thin-240.png') }}" alt="Accept"></button>
+          <form action="transact_confirm" method='post'>
+            <input type="number" name="from_aadhaar" id="aadhaar" placeholder="Enter Aadhaar number" required>
+            <input type="text" name="from_fname" id="name" placeholder="Enter Your name" required>
+            <input type="number" name="to_aadhaar" id="aadhaar" placeholder="Enter Aadhaar number" required>
+            <input type="text" name="to_fname" id="name" placeholder="Enter Your name" required>
+            <input type="number" name="amount" id="reqamount" placeholder="Enter the amount" required>
+            <input type="number" name="roi" id="reqamount" placeholder="Enter the Rate of Interest" required>
+            <input type="submit">
+          </form>
+        </div>
+      </div>
+
       <div id="request">
         <button id="requbtn">Request</button>
       </div>
       <div id="requestmoney">
         <button id="closerequ"><img src="{{ url_for('static', filename='iconmonstr-x-mark-thin-240.png') }}" alt="close request popup"></button>
-        <form action="/request_confirm" method="post">
-          <input type="number" name="aadhar" id="aadhar" placeholder="Enter Aadhar number" required>
-          <input type="text" name="fname" id="fname" placeholder="Enter First Name" required>
+        <form action="request_confirm" method='post'>
+          <input type="text" name="name" id="name" placeholder="Enter Your name" required>
+          <input type="number" name="aadhaar" id="aadhaar" placeholder="Enter Aadhaarnumber" required>
           <input type="number" name="reqamount" id="reqamount" placeholder="Enter the required amount" required>
-          <input id="submit" type="submit" value="Confirm Request">
+          <button id="conf">Confirm!</button>
         </form>
       </div>
 
       <script>
+
+
+        const btnn = document.getElementById("requbtn");
+        btnn.onclick = function () {
+          const a = document.getElementById("requestmoney");
+          if (a.style.display == "none") {
+            a.style.display = "block";
+          } else {
+            a.style.display = "none";
+          }
+          console.log("CLICKED!");
+        };
+        const btnnn = document.getElementById("closerequ");
+        btnnn.onclick = function () {
+          const a = document.getElementById("requestmoney");
+          if (a.style.display == "none") {
+            a.style.display = "block";
+          } else {
+            a.style.display = "none";
+          }
+          console.log("CLICKED!");
+        };
+        
+        
+        const btnnm = document.getElementById("accept");
+        btnnm.onclick = function () {
+          const a = document.getElementById("acceptpopup");
+          if (a.style.display == "none") {
+            a.style.display = "block";
+          } else {
+            a.style.display = "none";
+          }
+          console.log("CLICKED!");
+        };
+        const btnnmm = document.getElementById("closeacc");
+        btnnmm.onclick = function () {
+          const a = document.getElementById("acceptpopup");
+          if (a.style.display == "none") {
+            a.style.display = "block";
+          } else {
+            a.style.display = "none";
+          }
+          console.log("CLICKED!");
+        };
+
+
+
+        // const reqbtn=document.getElementById("requbtn");
+        // reqbtn.onClick = function (){
+        //   const m=document.getElementById("requestmoney");
+        //   if (m.style.display == "none") {
+        //     m.style.display = "block";
+        //   } else {
+        //     m.style.display = "none";
+        //   }
+        //   console.log("CLICKED!");
+        // };
+        // const reqclose=document.getElementById("closerequ");
+        // reqclose.onClick = function(){
+        //   const n=document.getElementById("requestmoney");
+        //   if(n.style.display== "block"){
+        //     n.style.display="none";
+        //     console.log("clicked");
+        //   }
+        // };
+
+
+
         const btn = document.getElementById("btn");
         btn.onclick = function () {
           const a = document.getElementById("menu");

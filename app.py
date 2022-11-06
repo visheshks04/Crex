@@ -114,7 +114,7 @@ def dashboard():
 def request_confirm():
     if request.method == 'POST':
         aadhar = request.form.get('aadhaar')
-        fname = request.form.get('fname')
+        fname = request.form.get('name')
         req_amount = request.form.get('reqamount')
         dt = datetime.now()
 
