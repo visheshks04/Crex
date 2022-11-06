@@ -14,12 +14,15 @@ Now, loans from banks are hard to get without much of a collateral. In such situ
 
 <img src='https://upload.wikimedia.org/wikipedia/commons/b/b3/SHG_Credit_Link_Durgaganj_Branch_July_08_%285%29.JPG'>
 
-Our idea is based on such Self-Help Groups where we help such people organize better into communities like Self-Help Groups by providing them with a platform where they can connect with each other and lend money peer-to-peer when in need.
+Our idea is based on such Self-Help Groups where we help such people organize better into communities like Self-Help Groups by providing them with a platform where they can connect with each other and lend money peer-to-peer when in need. The people they would lend and recieve money from would be their trustworthy so loans could be given on a reasonably low interest.
+
+<img src="./Screenshot%20from%202022-11-06%2011-01-37.png">
+
 
 ## Presentation
-Link to a brief presentation is here: 
+Link to a brief presentation is here: https://www.canva.com/design/DAFRJWCkOEE/ygz23nDAggtNJCenh-qzXg/edit?utm_content=DAFRJWCkOEE&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
 
 ## Team
     - Vishesh Kumar Singh (https://linkedin.com/in/visheshkumarsingh)
-    - Akshat Singh (https://linkedin.com/in/)
-    - Abhinav Saxena (https://linkedin.com/in/)
+    - Akshat Singh (https://linkedin.com/in/akshat-singhh/)
+    - Abhinav Saxena (https://linkedin.com/in/abhinav-saxena-947661213/)
